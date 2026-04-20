@@ -104,7 +104,7 @@ export default function VideoSection() {
             <iframe
               src={EMBED_URL}
               className="absolute inset-0 w-full h-full z-30"
-              allow="autoplay; encrypted-media"
+              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
               allowFullScreen
               title="LID Academy — 6 Minute Video"
             />
