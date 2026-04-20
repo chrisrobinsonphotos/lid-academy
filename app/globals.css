@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Color tokens ─────────────────────────────────────────── */
+:root {
+  --forest:   #2D6A2D;
+  --growth:   #3E8B3E;
+  --mist:     #EAF3DE;
+  --carbon:   #1A1A1A;
+  --eggshell: #F8F6F1;
+  --graphite: #4A4A4A;
+  --slate:    #4A5059;
+  --smoke:    #E8E9EB;
+  --iron:     #23272E;
+  --cream:    #F0EDE6;
+}
+
+/* ─── Base ──────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--eggshell);
+  transition: background-color 0.6s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+/* ─── Section label ─────────────────────────────────────────── */
+.section-label {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+/* ─── Ghost text variants ───────────────────────────────────── */
+.ghost-lid {
+  color: rgba(26, 26, 26, 0.04);
+  user-select: none;
+  pointer-events: none;
+}
+
+.ghost-system {
+  color: rgba(248, 246, 241, 0.04);
+  user-select: none;
+  pointer-events: none;
+}
+
+.ghost-book {
+  color: rgba(248, 246, 241, 0.035);
+  user-select: none;
+  pointer-events: none;
+}
+
+.ghost-cost-num {
+  color: rgba(26, 26, 26, 0.05);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ─── Marquee animation ─────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Scanlines overlay ─────────────────────────────────────── */
+.scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+  pointer-events: none;
+}
+
+/* ─── Video corner marks ────────────────────────────────────── */
+.corner-mark-tl,
+.corner-mark-br {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.corner-mark-tl {
+  top: 14px;
+  left: 14px;
+  border-top: 1px solid rgba(45, 106, 45, 0.55);
+  border-left: 1px solid rgba(45, 106, 45, 0.55);
+}
+
+.corner-mark-br {
+  bottom: 14px;
+  right: 14px;
+  border-bottom: 1px solid rgba(45, 106, 45, 0.55);
+  border-right: 1px solid rgba(45, 106, 45, 0.55);
+}
+
+/* ─── Scroll dot indicator ──────────────────────────────────── */
+@keyframes scrollDot {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%       { transform: translateY(6px); opacity: 0.2; }
+}
+
+.scroll-dot {
+  animation: scrollDot 2s ease-in-out infinite;
+}
+
+/* ─── Reframe body ──────────────────────────────────────────── */
+.reframe-body {
+  hyphens: none;
+}
+
+/* ─── Cursor (mobile) ───────────────────────────────────────── */
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
